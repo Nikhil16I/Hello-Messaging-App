@@ -1,9 +1,6 @@
 package com.restapi.hellomessaging_app.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hello")
@@ -19,5 +16,11 @@ public class RestApiController {
     @RequestMapping(value = {"/query"},method = RequestMethod.GET)
     public String sayHello(@RequestParam(value = "name")String Name){
         return "Hello"+Name+ " from BridgeLabs.";
+    }
+    /* UC-3 */
+    /* Using-http://localhost:8080/hello/param/ Nikhil*/
+    @RequestMapping("/param/{name}")
+    public String sayHelloParam(@PathVariable String name){
+        return "Hello"+name+ " from BridgeLabs.";
     }
 }
